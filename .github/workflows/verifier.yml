@@ -67,6 +67,7 @@ jobs:
       # Now test the py file by running pytest on the file at location
       - name: Run pytest
         run: |
-          ls -la
-          echo "Running pytest on .github/workflows/$($(git diff --name-only HEAD~1..HEAD)%.py)_verify.py"
-          pytest .github/workflows/$($(git diff --name-only HEAD~1..HEAD)%.py)_verify.py
+          old_name = $(git diff --name-only HEAD~1..HEAD)
+          new_name = "${old_name%.py}_verify.py"
+          echo "Running pytest on .github/workflows/$new_name"
+          pytest .github/workflows/$new_name

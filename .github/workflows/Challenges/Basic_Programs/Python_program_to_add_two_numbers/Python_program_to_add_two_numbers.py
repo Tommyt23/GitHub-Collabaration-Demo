@@ -1,4 +1,6 @@
-from Challenges.Basic_Programs.Python_program_to_add_two_numbers.Python_program_to_add_two_numbers import add
+import sys
+
+print(sys.path)
 
 def test_add():
     assert add(7, 8) == 15

@@ -61,4 +61,4 @@ jobs:
       - name: Run pytest
         run: |
           location=$(git diff --name-only HEAD~1..HEAD)
-          pytest .github/workflows/Challenge_verifiers/$(location/Challenges\//)
+          pytest .github/workflows/Challenge_verifiers$(location/Challenges/)

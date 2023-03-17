@@ -64,11 +64,9 @@ jobs:
       #       echo "The file is a verifier file"
       #       exit 1
       #     fi
-      # The files are stored like "Challenges/Topic/Task/Task.py" 
-      # Now test the py file by running pytest on the file at location ".github/workflows/Challenge_verifiers/x" where x = "Topic/Task/Task.py" 
-      # So if i complete "Challenges/Basic_Programs/add_two_numbers/add_two_numbers.py" then the verifier file will be at ".github/workflows/Challenge_verifiers/Basic_Programs/add_two_numbers/add_two_numbers.py"
+      # Now test the py file by running pytest on the file at location
       - name: Run pytest
         run: |
           ls -la
-          echo "Running pytest on .github/workflows/$(git diff --name-only HEAD~1..HEAD)"
-          pytest .github/workflows/$(git diff --name-only HEAD~1..HEAD)
+          echo "Running pytest on .github/workflows/$($(git diff --name-only HEAD~1..HEAD)%.py)_verify.py"
+          pytest .github/workflows/$($(git diff --name-only HEAD~1..HEAD)%.py)_verify.py

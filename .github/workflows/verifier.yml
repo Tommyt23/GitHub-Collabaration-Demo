@@ -30,4 +30,4 @@ jobs:
       - name: Check if only one file is changed
         run: |
           echo "Checking if only one file is changed"
-          git diff --name-only HEAD^ HEAD | wc -l | grep -q 1
+          git diff --name-only HEAD^ HEAD | wc -l

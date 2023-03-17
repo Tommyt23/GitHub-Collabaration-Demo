@@ -62,4 +62,4 @@ jobs:
         run: |
           ls -la
           echo "Running pytest on .github/$(git diff --name-only HEAD~1..HEAD)"
-          pytest .github/$(git diff --name-only HEAD~1..HEAD)
+          pytest /home/runner/work/GitHub-Collabaration-Demo/GitHub-Collabaration-Demo/.github/$(git diff --name-only HEAD~1..HEAD)

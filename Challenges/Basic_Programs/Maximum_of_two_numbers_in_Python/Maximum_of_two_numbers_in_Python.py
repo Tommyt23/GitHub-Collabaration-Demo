@@ -1,2 +1,5 @@
 def maximum(a, b):
-    # Complete the function
+    if a > b:
+        return a
+    else:
+        return b

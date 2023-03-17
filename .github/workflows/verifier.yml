@@ -60,5 +60,6 @@ jobs:
       # So if i complete "Challenges/Basic_Programs/add_two_numbers/add_two_numbers.py" then the verifier file will be at ".github/workflows/Challenge_verifiers/Basic_Programs/add_two_numbers/add_two_numbers.py"
       - name: Run pytest
         run: |
+          ls
           echo "Running pytest on ./.github/$(git diff --name-only HEAD~1..HEAD)"
           pytest ./.github/$(git diff --name-only HEAD~1..HEAD)

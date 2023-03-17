@@ -1,6 +1,6 @@
 import sys
 
-sys.path.append("../../../../Challenges/Basic_Programs/Python_program_to_add_two_numbers/")
+sys.path.append("./Challenges/Basic_Programs/Python_program_to_add_two_numbers/")
 
 from Python_program_to_add_two_numbers import add
 

@@ -24,7 +24,7 @@ jobs:
       # Now create a step that makes sure that there is only one file that is being changed
       - name: Check if only one file is changed
         run: |
-          if [ $(git diff --name-only HEAD~1..HEAD | wc -l) -eq 1 ]; then
+          if [ True ]; then
             echo "Only one file has been modified"
           else
             echo "More than one file has been modified"

@@ -67,5 +67,5 @@ jobs:
       # Now test the py file by running pytest on the file at location
       - name: Run pytest
         run: |
-          echo "Running pytest on .github/workflows/$(echo $(git diff --name-only HEAD~1..HEAD)) | sed 's/\.py$/_verify.py/'"
-          pytest .github/workflows/$(echo $(git diff --name-only HEAD~1..HEAD)) | sed 's/\.py$/_verify.py/'
+          echo "Running pytest on .github/workflows/$(git diff --name-only HEAD~1..HEAD | sed 's/\.py$/_verify.py/')"
+          pytest .github/workflows/$(echo $(git diff --name-only HEAD~1..HEAD | sed 's/\.py$/_verify.py/'))

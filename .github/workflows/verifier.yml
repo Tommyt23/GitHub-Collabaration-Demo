@@ -42,5 +42,6 @@ jobs:
             echo "Only one file has been modified"
           else
             echo "More than one file has been modified"
+            echo "The number of files modified is $(git diff --name-only HEAD~1..HEAD | wc -l)"
             exit 1
           fi

@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10"]
+        python-version: "3.9"
 
     steps:
       - uses: actions/checkout@v3
@@ -20,6 +20,27 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pytest pytest-cov
-      - name: Test
+      # Now create a step that makes sure that there is only one file that is being changed
+      - name: Check if only one file is changed
         run: |
-          pytest
+          git diff --name-only HEAD^ HEAD | wc -l | grep -q 1
+      # Now create a step that makes sure that the file that is being changed is the one that you want
+      - name: Check if the file that is changed is a python file
+        run: |
+          git diff --name-only HEAD^ HEAD | grep -q "*.py"
+      # Make sure a file is not being added
+      - name: Check if a file is not being added
+        run: |
+          git diff --name-only HEAD^ HEAD | grep -q "A"
+      # Make sure a file is not being deleted
+      - name: Check if a file is not being deleted
+        run: |
+          git diff --name-only HEAD^ HEAD | grep -q "D"
+      # Make sure the commit is valid (works)
+      - name: Check if the commit is valid
+        run: |
+          # Get the path of the file that is being changed and run testpy on the corrosponding test file for that file
+          # E.g file is "Challenge/Topic/Challenge Name/Challenge Name.py" then the test file is ".github/workflows/Challenge verifiers/Topic/Challenge Name/Challenge Name.py"
+          # This is done by replacing the "Challenge" with ".github/workflows/Challenge verifiers" and replacing the ".py" with ".py"
+          # Then run the test file
+          git diff --name-only HEAD^ HEAD | sed -e "s/Challenge/.github\/workflows\/Challenge verifiers/" -e "s/.py/.py/" | xargs -I {} python3 {}

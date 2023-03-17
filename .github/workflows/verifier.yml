@@ -23,8 +23,8 @@ jobs:
       # Login to github
       - name: Login
         run: |
-          git config -- --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config -- --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
       # Now create a step that makes sure that there is only one file that is being changed
       - name: Check if only one file is changed
         run: |

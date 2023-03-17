@@ -28,7 +28,7 @@ jobs:
       # Now create a step that makes sure that there is only one file that is being changed
       - name: Check if only one file is changed
         run: |
-          git diff -- --name-only HEAD^ HEAD
+          echo "Checking if only one file is changed"
           git diff -- --name-only HEAD^ HEAD | wc -l | grep -q 1
       # Now create a step that makes sure that the file that is being changed is the one that you want
       - name: Check if the file that is changed is a python file

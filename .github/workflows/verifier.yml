@@ -29,7 +29,8 @@ jobs:
           git config --global user.name "github-actions[bot]"
       # Fetch all history for all tags and branches
       - name: Fetch all history for all tags and branches
-         run: git fetch --prune --unshallow
+        run: |
+          git fetch --prune --unshallow
       # Git test
       - name: Git test
         run: |

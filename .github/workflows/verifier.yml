@@ -30,7 +30,7 @@ jobs:
       # Git test
       - name: Git test
         run: |
-          git diff Head~1..HEAD 
+          git diff HEAD~1..HEAD 
       # Now create a step that makes sure that there is only one file that is being changed
       - name: Check if only one file is changed
         run: |

@@ -23,6 +23,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest pytest-cov
       # Login to github
+      - name: Login
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+      # Git test
       - name: Git test
         run: |
           git diff Head~1..HEAD 

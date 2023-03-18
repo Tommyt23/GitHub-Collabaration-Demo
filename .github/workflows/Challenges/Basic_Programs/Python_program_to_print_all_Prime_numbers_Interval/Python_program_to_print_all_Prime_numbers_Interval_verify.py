@@ -1,8 +1,8 @@
 import sys
 
-sys.path.append("./Challenges/Basic_Programs/Python_program_to_print_all_Prime_numbers_in_an_Interval/")
+sys.path.append("./Challenges/Basic_Programs/Python_program_to_print_all_Prime_numbers_Interval")
 
-from Python_program_to_print_all_Prime_numbers_in_an_Interval import prime
+from Python_program_to_print_all_Prime_numbers_Interval import prime
 
 def test_prime():
     assert prime(1, 10) == [2, 3, 5, 7]
